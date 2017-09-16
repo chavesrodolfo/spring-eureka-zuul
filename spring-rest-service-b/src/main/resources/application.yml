@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-rest-service-B
+server:
+  port: 9292
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://eureka-server:8761/eureka}
+  instance:
+    preferIpAddress: true

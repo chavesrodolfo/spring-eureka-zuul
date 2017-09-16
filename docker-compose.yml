@@ -1,0 +1,22 @@
+version: '3'
+services:
+  rest-service-a:
+    image: spring-rest-service-a
+    depends_on:
+     - eureka-server
+  rest-service-b:
+    image: spring-rest-service-b
+    depends_on:
+     - rest-service-a
+
+  eureka-server:
+    image: spring-eureka-server
+    ports:
+     - "8761:8761"
+
+  zuul-server:
+    image: spring-zuul-server
+    depends_on:
+     - eureka-server
+    ports:
+     - "8080:8080"
